@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
-    <h2>{{ $listing['title'] }}</h2>
-    <p>{{ $listing['description'] }}</p>
+<h3 class="text-2xl">
+  <a href="/listings/{{$listing->id}}">{{$listing->title}}</a>
+</h3>
+    <p>{{ $listing->description }}</p>
   @endsection
     
