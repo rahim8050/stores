@@ -8,7 +8,7 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
  return view  ('listings', [
- 'heading' => 'latest listings',
+ 
  'listings' => Listing::all()
  ]);
 
