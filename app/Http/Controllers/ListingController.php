@@ -9,7 +9,7 @@ class ListingController extends Controller
 {
     public function index()
     {
-        return view  ('Listings', [
+        return view  ('lists.listings', [
  
             'listings' => Listing::all()
             ]);
