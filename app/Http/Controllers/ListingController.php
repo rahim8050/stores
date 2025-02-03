@@ -9,14 +9,14 @@ class ListingController extends Controller
 {
     public function index()
     {
-        return view  ('Listings.indices', [
+        return view  ('Listings', [
  
             'listings' => Listing::all()
             ]);
     }
     public function show(Listing $listing)
     {
-        return view('listings.show', [
+        return view('listing', [
             'listing' => $listing
         ]);
     }
