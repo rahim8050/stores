@@ -19,4 +19,10 @@ class Listing extends Model
         'website',
         'description',
     ];
+    public function ScopeFilter ($query, array $filters){
+        if($filters['tag'] ?? false) {
+            $query->where('tags', 'like', '%' . request('tag') . '%');
+        }
+
+    }
 }
