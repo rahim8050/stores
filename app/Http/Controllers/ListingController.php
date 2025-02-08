@@ -40,6 +40,7 @@ class ListingController extends Controller
             // 'image' => 'required|image|max:5000'
            
         ]);
+        Listing::create($formFields);
         return redirect('/');
     }
     
