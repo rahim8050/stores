@@ -25,4 +25,10 @@ class ListingController extends Controller
     {
         return view('listings.Creates');
     }
+    // store new listing
+    public function store()
+    {
+       
+        
+    }
 }
