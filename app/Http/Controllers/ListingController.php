@@ -52,4 +52,21 @@ class ListingController extends Controller
             'listing' => $listing
         ]);
     }
+    public function update(Request $request, Listing $listing)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required', Rule::unique('listings', 'company')->ignore($listing->id)],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->logo->store('logos', 'public');
+        }
+        $listing->update($formFields);
+        return redirect('/')->with('message', 'Listing Updated successfully');
+    }
 }
