@@ -56,7 +56,7 @@ class ListingController extends Controller
     {
         $formFields = $request->validate([
             'title' => 'required',
-            'company' => ['required', Rule::unique('listings', 'company')->ignore($listing->id)],
+            'company' => ['required'],
             'location' => 'required',
             'website' => 'required',
             'email' => ['required', 'email'],
@@ -67,6 +67,6 @@ class ListingController extends Controller
             $formFields['logo'] = $request->logo->store('logos', 'public');
         }
         $listing->update($formFields);
-        return redirect('/')->with('message', 'Listing Updated successfully');
+        return back()->with('message', 'Listing Updated successfully');
     }
 }
