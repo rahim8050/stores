@@ -32,4 +32,9 @@ class UserController extends Controller
         $request ->session()->regenerateToken();
         return redirect('/')->with('message', 'User logged out');
     }
+    //show login form
+    public function login()
+    {
+        return view('Users.login');
+    }
 }
