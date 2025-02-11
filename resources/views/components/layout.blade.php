@@ -35,6 +35,27 @@
           
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
+                @auth
+                <li>
+                    <span class="font-bold uppercase">
+                        Welcome to LaraGigs {{auth()->user()->name}}
+                    </span>
+                </li>
+                <li>
+                    <a href="/listings/Manage" class="hover:text-laravel"
+                        ><i class="fa-solid fa-gear"></i>
+                        Manage listings</a
+                    >
+                </li>
+                <li>
+                    <form method="POST" action="/logout" class="inline">
+                    @csrf
+                    <button type="submit" class="hover:text-laravel">
+                        <i class="fa-solid fa-door-closed"></i> Logout
+                    </form>
+                </li>
+                <hr>
+                @else
                 <li>
                     <a href="/register" class="hover:text-laravel"
                         ><i class="fa-solid fa-user-plus"></i> Register</a
@@ -46,6 +67,7 @@
                         Login</a
                     >
                 </li>
+                @endauth
             </ul>
         </nav>
 <main>
