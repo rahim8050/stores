@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ListingController;
 use Inertia\Inertia;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', [ListingController::class, 'index']);
@@ -23,4 +24,7 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
 // single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
- 
+// show register form
+Route::get('/register', [UserController::class, 'create']);
+
+
