@@ -52,4 +52,18 @@ class UserController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+    public function authenicate(Request $request)
+    {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+        if (Auth::attempt($formFields)) {
+            $request->session()->regenerate();
+            return redirect('/')->with('message', 'User logged in');
+        }
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
 }
