@@ -11,15 +11,16 @@ class Listing extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'title',
-    //     'tags',
-    //     'company',
-    //     'location',
-    //     'email',
-    //     'website',
-    //     'description',
-    // ];
+    protected $fillable = [
+        'user_id',
+        'title',
+        'tags',
+        'company',
+        'location',
+        'email',
+        'website',
+        'description',
+    ];
     public function ScopeFilter ($query, array $filters){
         if($filters['tag'] ?? false) {
             $query->where('tags', 'like', '%' . request('tag') . '%');
@@ -34,8 +35,8 @@ class Listing extends Model
 
     }
     // relationship
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
+     // Relationship To User
+     public function user(): BelongsTo{
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

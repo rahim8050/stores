@@ -11,10 +11,10 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [ListingController::class, 'index']);
  
 //show create form
-Route::get('/listings/create', [ListingController::class, 'create']);
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 
 //store new listing
-Route::post('/listings', [ListingController::class, 'store']);
+Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 // show edit form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 //  update listing

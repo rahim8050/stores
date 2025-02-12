@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Auth;
+
 
 class ListingController extends Controller
 {
@@ -46,6 +44,7 @@ class ListingController extends Controller
         if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->logo->store('logos', 'public');
         }
+        $formFields['user_id'] = auth()->id();
         Listing::create($formFields);
         return redirect('/')->with('message', 'Listing Created successfully');
     }
@@ -66,15 +65,11 @@ class ListingController extends Controller
             'email' => ['required', 'email'],
             'tags' => 'required',
             'description' => 'required'
-            
         ]);
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->logo->store('logos', 'public');
         }
-        $formFields['user_id'] = Auth::id();
-        
-        
-        $listing::create($formFields);
+        $listing->update($formFields);
         return back()->with('message', 'Listing Updated successfully');
     }
     // delete listing
@@ -83,6 +78,6 @@ class ListingController extends Controller
         $listing->delete();
         return redirect('/')->with('message', 'Listing Deleted successfully');
     }
-    // relationship 
+ 
    
 }
