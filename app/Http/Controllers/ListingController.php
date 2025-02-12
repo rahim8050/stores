@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 class ListingController extends Controller
 {
     public function index()
@@ -75,4 +78,6 @@ class ListingController extends Controller
         $listing->delete();
         return redirect('/')->with('message', 'Listing Deleted successfully');
     }
+    // relationship 
+   
 }
