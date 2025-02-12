@@ -7,6 +7,7 @@ use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -65,11 +66,15 @@ class ListingController extends Controller
             'email' => ['required', 'email'],
             'tags' => 'required',
             'description' => 'required'
+            
         ]);
-        if ($request->hasFile('logo')) {
-            $formFields['logo'] = $request->logo->store('logos', 'public');
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
-        $listing->update($formFields);
+        $formFields['user_id'] = Auth::id();
+        
+        
+        $listing::create($formFields);
         return back()->with('message', 'Listing Updated successfully');
     }
     // delete listing
