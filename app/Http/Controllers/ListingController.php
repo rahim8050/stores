@@ -12,7 +12,7 @@ class ListingController extends Controller
     public function index()
     {
         return view  ('listings.index', [
- 
+
             'listings' => Listing::latest()->filter(request(['tag','search']))->paginate(5)
             ]);
     }
@@ -30,8 +30,8 @@ class ListingController extends Controller
     // store new listing
     public function store(Request $request)
     {
-       
-           
+
+
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -50,7 +50,7 @@ class ListingController extends Controller
     }
     public function edit(Listing $listing)
     {
-        
+
         return view('listings.edit', [
             'listing' => $listing
         ]);
@@ -86,10 +86,10 @@ class ListingController extends Controller
     }
     public function manage()
     {
-        
-            return view('Users.manage', ['listings' => auth()->user()->listings()->get()]);
-        
+
+        return view('Users.manage', ['listings' => auth()->user()->listings()->get()]);
+
     }
- 
-   
+
+
 }
