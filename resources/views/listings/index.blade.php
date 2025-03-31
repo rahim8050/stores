@@ -18,3 +18,4 @@
     {{$listings->links()}}
 </div>
 </x-layout>
+// a simple update cos I am offline for a while 
