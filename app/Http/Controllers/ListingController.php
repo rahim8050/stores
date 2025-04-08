@@ -91,5 +91,9 @@ class ListingController extends Controller
 
     }
 
-
+// show manage form
+    public function manageForm()
+    {
+        return view('Users.manage');
+    }
 }
