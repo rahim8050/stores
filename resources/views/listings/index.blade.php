@@ -8,7 +8,7 @@
 
 @foreach ($listings  as $listing )
 <x-listing :listing="$listing" />
-    
+
 @endforeach
 @else
     <p>No listings found</p>
@@ -18,4 +18,4 @@
     {{$listings->links()}}
 </div>
 </x-layout>
-// a simple update cos I am offline for a while 
+
