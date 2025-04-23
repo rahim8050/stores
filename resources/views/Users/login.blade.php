@@ -5,12 +5,12 @@
         <h2 class="text-2xl font-bold uppercase mb-1">
             Login
         </h2>
-        <p class="mb-4">Log into your  account to post gigs</p>
+        <p class="mb-4">Log into your  account to post jobs</p>
     </header>
 
     <form method="POST" action="/users/authenticate">
         @csrf
-        
+
 
         <div class="mb-6">
             <label for="email" class="inline-block text-lg mb-2"
@@ -24,9 +24,9 @@
             @error('email')
             <p class="text-red-500 text-xs mt-1">
                 Please enter a valid email
-            </p> 
+            </p>
             @enderror
-           
+
         </div>
 
         <div class="mb-6">
@@ -44,7 +44,7 @@
             @error('password')
             <p class="text-red-500 text-xs mt-1">
                 Please enter a valid email
-            </p> 
+            </p>
             @enderror
         </div>
 

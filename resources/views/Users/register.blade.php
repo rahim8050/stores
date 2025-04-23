@@ -5,7 +5,7 @@
         <h2 class="text-2xl font-bold uppercase mb-1">
             Register
         </h2>
-        <p class="mb-4">Create an account to post gigs</p>
+        <p class="mb-4">Create an account to post JOBS</p>
     </header>
 
     <form method="POST" action="/users">
@@ -20,7 +20,7 @@
                 name="name" value="{{old('name')}}"
             />
             @error('name')
-               <p class="text-red-500 text xs mt-1">{{$message}}</p> 
+               <p class="text-red-500 text xs mt-1">{{$message}}</p>
             @enderror
         </div>
 
@@ -36,9 +36,9 @@
             @error('email')
             <p class="text-red-500 text-xs mt-1">
                 Please enter a valid email
-            </p> 
+            </p>
             @enderror
-           
+
         </div>
 
         <div class="mb-6">
@@ -56,7 +56,7 @@
             @error('password')
             <p class="text-red-500 text-xs mt-1">
                 Please enter a valid email
-            </p> 
+            </p>
             @enderror
         </div>
 
@@ -75,7 +75,7 @@
             @error('password_confirmation')
             <p class="text-red-500 text-xs mt-1">
                 Please enter a valid email
-            </p> 
+            </p>
             @enderror
         </div>
 

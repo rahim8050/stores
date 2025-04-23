@@ -4,7 +4,7 @@
     >
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Edit Gig
+                Edit Job
             </h2>
             <p class="mb-4">Edit: {{$listing->title}}</p>
         </header>
@@ -127,7 +127,7 @@
             alt=""
                         />
 
-                
+
                 @error('logo')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
@@ -142,7 +142,7 @@
                 </label>
                 <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
                 placeholder="Include tasks, requirements, salary, etc">{{$listing->description}}</textarea>
-      
+
 
         @error('description')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
